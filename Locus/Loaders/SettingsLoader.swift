@@ -6,6 +6,6 @@
 //  Copyright © 2020 Derek Clarkson. All rights reserved.
 //
 
-protocol SettingsLoader {
-    init(container: SettingsLoadable)
+public protocol SettingsLoader {
+    func load(into: SettingsLoadable, completion: @escaping () -> Void)
 }

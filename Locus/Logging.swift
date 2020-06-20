@@ -8,10 +8,5 @@
 
 import os
 
-func locusLog(_ template: String, _ args: CVarArg...) {
-    locusLog(template, args)
-}
-
-func locusLog(_ template: String, _ arguments: [CVarArg]) {
-    os_log(.debug, "🧩 %@", String(format: template, arguments: arguments))
-}
+let logPrefix = "🧩 "
+let fatalPrefix = "🧨 "

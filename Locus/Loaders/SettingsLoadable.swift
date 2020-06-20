@@ -8,6 +8,5 @@
 
 
 public protocol SettingsLoadable {
-//    func metadata(forKey key: String) -> Metadata
-//    func set<T>(key: String, defaultValue: T) throws
+    func update<V>(key: String, defaultValue value: V)
 }

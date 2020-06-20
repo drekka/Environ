@@ -6,6 +6,7 @@
 //  Copyright © 2020 Derek Clarkson. All rights reserved.
 //
 
+import os
 
 /// Provides methods for casting value types.
 public protocol Castable {
@@ -26,9 +27,9 @@ public extension Castable {
 
     func cast<T>(_ value: Any, forKey key: String) -> T {
         if let castValue = value as? T {
-            locusLog("Resolving %@ -> %@", key, String(describing: value))
+            os_log("%@Resolving %@ -> %@", type: .debug, logPrefix, key, String(describing: value))
             return castValue
         }
-        fatalError("Unable to cast value for '" + key + "'")
+        fatalError(fatalPrefix + "Unable to cast value for '" + key + "'")
     }
 }

@@ -29,9 +29,11 @@
 		6C8C9C312486823D0014BA27 /* TransientStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C9C302486823D0014BA27 /* TransientStore.swift */; };
 		6C8C9C332486A4DD0014BA27 /* StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C9C322486A4DD0014BA27 /* StoreTests.swift */; };
 		6C8C9C372486A5C80014BA27 /* CastableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C9C362486A5C80014BA27 /* CastableTests.swift */; };
+		6C919A292494D07E00B16A04 /* UserDefaultsRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C919A282494D07E00B16A04 /* UserDefaultsRegistrar.swift */; };
+		6C919A762495D2CE00B16A04 /* UserDefaultsRegistrarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C919A752495D2CE00B16A04 /* UserDefaultsRegistrarTests.swift */; };
+		6C919A7B2495D44E00B16A04 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6C919A7A2495D44E00B16A04 /* Settings.bundle */; };
 		6CE7FF7A2476674F00A8E404 /* SettingsLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7FF792476674F00A8E404 /* SettingsLoadable.swift */; };
 		6CE7FF7C24766E9300A8E404 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7FF7B24766E9300A8E404 /* Nimble.framework */; };
-		6CE7FF7E24766EA500A8E404 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CE7FF7B24766E9300A8E404 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6CE94C5F247FD41F00584BAF /* MockStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE94C5E247FD41F00584BAF /* MockStore.swift */; };
 		6CE94C64247FE7CA00584BAF /* UserDefaultStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE94C63247FE7CA00584BAF /* UserDefaultStoreTests.swift */; };
 		6CEB0595248BC44700F31967 /* TransientStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEB0594248BC44700F31967 /* TransientStoreTests.swift */; };
@@ -53,19 +55,6 @@
 			remoteInfo = environ;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		6CE7FF7D24766E9B00A8E404 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				6CE7FF7E24766EA500A8E404 /* Nimble.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6C21C0DC248B4E1F00EC3C92 /* DefaultStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStore.swift; sourceTree = "<group>"; };
@@ -94,6 +83,9 @@
 		6C8C9C302486823D0014BA27 /* TransientStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransientStore.swift; sourceTree = "<group>"; };
 		6C8C9C322486A4DD0014BA27 /* StoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTests.swift; sourceTree = "<group>"; };
 		6C8C9C362486A5C80014BA27 /* CastableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastableTests.swift; sourceTree = "<group>"; };
+		6C919A282494D07E00B16A04 /* UserDefaultsRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRegistrar.swift; sourceTree = "<group>"; };
+		6C919A752495D2CE00B16A04 /* UserDefaultsRegistrarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRegistrarTests.swift; sourceTree = "<group>"; };
+		6C919A7A2495D44E00B16A04 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6CE7FF792476674F00A8E404 /* SettingsLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLoadable.swift; sourceTree = "<group>"; };
 		6CE7FF7B24766E9300A8E404 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		6CE94C5C247FCF3E00584BAF /* Locus.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Locus.xctestplan; sourceTree = "<group>"; };
@@ -135,6 +127,7 @@
 			children = (
 				6CE7FF792476674F00A8E404 /* SettingsLoadable.swift */,
 				6C590BDE2473CB0900548F23 /* SettingsLoader.swift */,
+				6C919A282494D07E00B16A04 /* UserDefaultsRegistrar.swift */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -181,6 +174,8 @@
 		6C590BBD2470083800548F23 /* LocusTests */ = {
 			isa = PBXGroup;
 			children = (
+				6C919A7A2495D44E00B16A04 /* Settings.bundle */,
+				6C919A742495D2B500B16A04 /* Loaders */,
 				6C590BC02470083800548F23 /* Info.plist */,
 				6CEB059E248E31C900F31967 /* Integration */,
 				6CEB059A248CDA3A00F31967 /* LocusContainerTests.swift */,
@@ -230,6 +225,14 @@
 				6C8C9C362486A5C80014BA27 /* CastableTests.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		6C919A742495D2B500B16A04 /* Loaders */ = {
+			isa = PBXGroup;
+			children = (
+				6C919A752495D2CE00B16A04 /* UserDefaultsRegistrarTests.swift */,
+			);
+			path = Loaders;
 			sourceTree = "<group>";
 		};
 		6CE94C5D247FD40900584BAF /* Mocks */ = {
@@ -302,7 +305,7 @@
 				6C590BB52470083800548F23 /* Sources */,
 				6C590BB62470083800548F23 /* Frameworks */,
 				6C590BB72470083800548F23 /* Resources */,
-				6CE7FF7D24766E9B00A8E404 /* CopyFiles */,
+				6C919A772495D37600B16A04 /* Copy carthage dependencies */,
 			);
 			buildRules = (
 			);
@@ -365,10 +368,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C919A7B2495D44E00B16A04 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6C919A772495D37600B16A04 /* Copy carthage dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/Carthage/Build/iOS/Nimble.framework",
+			);
+			name = "Copy carthage dependencies";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/frameworks/Nimble.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6C590BAC2470083800548F23 /* Sources */ = {
@@ -383,6 +411,7 @@
 				6C590BDD2473CAEB00548F23 /* Castable.swift in Sources */,
 				6CEB05A2248E826C00F31967 /* LocusContainer.swift in Sources */,
 				6C590BD72472D06A00548F23 /* Scope.swift in Sources */,
+				6C919A292494D07E00B16A04 /* UserDefaultsRegistrar.swift in Sources */,
 				6C339E1C24828F2F0081DF40 /* Store.swift in Sources */,
 				6C339E1A248226EC0081DF40 /* StoreFactory.swift in Sources */,
 				6C590BE12473DB3500548F23 /* UserDefaultsStore.swift in Sources */,
@@ -408,6 +437,7 @@
 				6CE94C64247FE7CA00584BAF /* UserDefaultStoreTests.swift in Sources */,
 				6CEB0597248BE03100F31967 /* TransientStoreFactoryTests.swift in Sources */,
 				6CEB05A0248E320300F31967 /* IntegrationTests.swift in Sources */,
+				6C919A762495D2CE00B16A04 /* UserDefaultsRegistrarTests.swift in Sources */,
 				6C8C9C332486A4DD0014BA27 /* StoreTests.swift in Sources */,
 				6CEB059B248CDA3A00F31967 /* LocusContainerTests.swift in Sources */,
 				6CEB0599248CB78800F31967 /* UserDefaultsStoreFactoryTests.swift in Sources */,
