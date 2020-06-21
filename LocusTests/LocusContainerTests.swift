@@ -16,14 +16,11 @@ enum TestKey: String {
 
 class LocusContainerTests: XCTestCase {
 
-    private var settings: SettingsContainer!
+    private var settings: LocusContainer!
 
     override func setUp() {
         super.setUp()
-
-        // Clear registered defaults.
         UserDefaultsRegistrarTests.clearRegisteredDefaults()
-
         settings = LocusContainer(storeFactories: [MockStoreFactory()])
     }
 
@@ -141,47 +138,93 @@ class LocusContainerTests: XCTestCase {
 
     // MARK: - Registering user defaults
 
-    func testUserDefaultsNotRegisteredWhenNoSettingAccessed() {
-        let defaults = UserDefaults.standard
-        expect(defaults.float(forKey: "slider_preference")) == 0.0
-    }
-
-    func testUserDefaultsNotRegisteredWhenturnedOff() {
-        settings.register(key: "abc", scope: .readonly, defaultValue: 5)
-        settings.registerAppSettings = false
-        settings.appSettingsBundle = Bundle(for: type(of: self))
-        expect(self.settings.resolve("abc") as Int) == 5 // Should NOT trigger user defaults registrations.
-    }
-
     func testUserDefaultsRegisteredWhenSettingAccessed() {
 
-        // Register keys to match those in settings bundle.
-        settings.register(key: "slider_preference", defaultValue: 123)
-        settings.register(key: "name_preference", defaultValue: "Hello")
-        settings.register(key: "enabled_preference", defaultValue: true)
-        settings.register(key: "child.slider_preference", defaultValue: 123.456)
-        settings.register(key: "child.name_preference", defaultValue: "Hello from child")
-        settings.register(key: "child.enabled_preference", defaultValue: false)
+        var called = false
+        settings.userDefaultsRegistrar = {
+            called = true
+            return [:]
+        }
 
-        settings.appSettingsBundle = Bundle(for: type(of: self))
+        settings.register(key: "abc", defaultValue: "hello")
+        expect(called).to(beFalse())
+        expect(self.settings.resolve("abc") as String) == "hello" // Should trigger user defaults registrations.
+        expect(called).to(beTrue())
+    }
 
-        expect(self.settings.resolve("name_preference") as String) == "Hello" // Should trigger user defaults registrations.
-        expect(UserDefaults.standard.float(forKey: "slider_preference")) == 0.5 // Should match value registered in user defaults.
+
+    func testUserDefaultsDontRegisteredIfDisabled() {
+
+        var called = false
+        settings.userDefaultsRegistrar = {
+            called = true
+            return [:]
+        }
+        settings.register(key: "abc", scope: .readonly, defaultValue: 5)
+        expect(called).to(beFalse())
+        settings.registerAppSettings = false
+        expect(self.settings.resolve("abc") as Int) == 5 // Should NOT trigger user defaults registrations.
+        expect(called).to(beFalse())
     }
 
     func testUserDefaultsRegisteredThrowsWhenNotPreregistered() {
-        settings.appSettingsBundle = Bundle(for: type(of: self))
-        expect(self.settings.resolve("name_preference")).to(throwAssertion()) // Should trigger registration and throw on none registration of plist settings.
+        settings.userDefaultsRegistrar = {
+            return ["def": 5]
+        }
+        settings.register(key: "abc", scope: .readonly, defaultValue: 5)
+        expect(_ = self.settings.resolve("abc") as Int).to(throwAssertion())
     }
 
     func testUserDefaultsRegisteredDoesntThrowWhenToldNotTo() {
-
-        settings.register(key: "abc", scope: .readonly, defaultValue: 5)
-        settings.appSettingsBundle = Bundle(for: type(of: self))
-
+        var called = false
+        settings.userDefaultsRegistrar = {
+            called = true
+            return ["def": 5]
+        }
+        settings.register(key: "abc", scope: .readonly, defaultValue: "hello")
         settings.validateAppSettingsKeys = false
+        expect(self.settings.resolve("abc") as String) == "hello"
+        expect(called).to(beTrue())
+    }
 
-        expect(self.settings.resolve("abc") as Int) == 5 // Should trigger user defaults registrations.
-        expect(UserDefaults.standard.float(forKey: "slider_preference")) == 0.5 // Should match value registered in user defaults.
+    // MARK:- Loaders
+
+    func testRunsLoaders() {
+
+        UserDefaultsRegistrarTests.clearRegisteredDefaults()
+
+        class Loader1: SettingsLoader {
+            var called = false
+            func load(into loadable: SettingsLoadable, completion: @escaping () -> Void) {
+                called = true
+                loadable.update(key: "abc", defaultValue: "hello")
+                completion()
+            }
+        }
+
+        class Loader2: SettingsLoader {
+            var called = false
+            func load(into loadable: SettingsLoadable, completion: @escaping () -> Void) {
+                called = true
+                loadable.update(key: "def", defaultValue: "bye")
+                completion()
+            }
+        }
+
+        settings.register(key: "abc", defaultValue: "")
+        settings.register(key: "def", defaultValue: "")
+
+        let loader1 = Loader1()
+        let loader2 = Loader2()
+        var completionCalled = false
+        settings.load(fromLoaders: loader1, loader2) {
+            completionCalled = true
+        }
+
+        expect(completionCalled).toEventually(beTrue())
+        expect(loader1.called).to(beTrue())
+        expect(loader2.called).to(beTrue())
+        expect(self.settings["abc"] as String) == "hello"
+        expect(self.settings["def"] as String) == "bye"
     }
 }

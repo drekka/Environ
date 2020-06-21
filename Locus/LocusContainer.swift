@@ -10,6 +10,8 @@ import os
 
 public class LocusContainer {
 
+    public static var defaultStoreFactories: [StoreFactory] = [TransientStoreFactory(), UserDefaultsStoreFactory()]
+
     /// Enables or disables the auto-registering of user defaults defaultValues from settings plists.
     /// On by default.
     public var registerAppSettings = true {
@@ -27,6 +29,8 @@ public class LocusContainer {
     // Go true when the UserDefaultsRegistrar has been run.
     private var appSettingsRegistered = false
 
+    lazy var userDefaultsRegistrar: () -> [String: Any] = { UserDefaultsRegistrar().register(bundle: self.appSettingsBundle) }
+
     ///
     public static var shared: SettingsContainer = {
         os_log("%@Starting singleton container...", type: .debug, logPrefix)
@@ -36,7 +40,7 @@ public class LocusContainer {
     private let storeFactories: [StoreFactory]
     private var stores: [String: Any] = [:]
 
-    public init(storeFactories: [StoreFactory] = [TransientStoreFactory(), UserDefaultsStoreFactory()]) {
+    public init(storeFactories: [StoreFactory] = LocusContainer.defaultStoreFactories) {
         self.storeFactories = storeFactories.reversed()
     }
 
@@ -51,7 +55,7 @@ public class LocusContainer {
 
         // Register and validate if required.
         os_log("%@Registering application settings in user defaults...", type: .debug, logPrefix)
-        let registeredDefaults = UserDefaultsRegistrar().register(bundle: appSettingsBundle)
+        let registeredDefaults = userDefaultsRegistrar()
         if validateAppSettingsKeys {
             os_log("%@Validating application settings found in user defaults...", type: .debug, logPrefix)
             let knownKeys = stores.keys
@@ -83,6 +87,7 @@ extension LocusContainer: SettingsContainer, SettingsSubscriptable {
     }
 
     public func load(fromLoaders loaders: SettingsLoader..., completion: @escaping () -> Void) {
+        os_log("%@Running loaders ...", type: .debug, logPrefix)
         executeNextLoader(from: loaders, completion: completion)
     }
 
@@ -98,6 +103,7 @@ extension LocusContainer: SettingsContainer, SettingsSubscriptable {
         let loader = loaders.removeFirst()
         os_log("%@Executing loader %@ ...", type: .debug, logPrefix, String(describing: loader))
         loader.load(into: self) {
+            os_log("%@    Loader finished, excuting next loader ...", type: .debug, logPrefix, String(describing: loader))
             self.executeNextLoader(from: loaders, completion: completion)
         }
     }
@@ -108,7 +114,7 @@ extension LocusContainer: SettingsContainer, SettingsSubscriptable {
     }
 
     public func store<T>(key: String, value: T) {
-        storageChain(forKey: key).update(withDefaultValue: value)
+        storageChain(forKey: key).store(newValue: value)
     }
 
     public func reset(key: String) {
@@ -131,5 +137,7 @@ extension LocusContainer: SettingsLoadable {
     // MARK: - SettingsLoadable
 
     public func update<V>(key: String, defaultValue value: V) {
+        os_log("%@    Updating default value: %@ -> %@", type: .debug, logPrefix, key, String(describing: value))
+        storageChain(forKey: key).update(withDefaultValue: value)
     }
 }
