@@ -16,7 +16,7 @@ class DefaultStoreTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        store = DefaultStore(key: "abc", defaultValue: 5)
+        store = DefaultStore(key: "abc", value: 5)
     }
 
     func testValue() {
@@ -28,7 +28,7 @@ class DefaultStoreTests: XCTestCase {
     }
 
     func testUpdate() {
-        store.update(withDefaultValue: 10)
+        store.update(defaultValue: 10)
         expect(self.store.value) == 10
     }
 }

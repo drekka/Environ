@@ -1,0 +1,131 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/LocusContainer.swift",
+      "line": 11,
+      "symbol": "LocusContainer",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/LocusContainer.swift",
+      "line": 13,
+      "symbol": "LocusContainer.defaultStoreFactories",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/LocusContainer.swift",
+      "line": 44,
+      "symbol": "LocusContainer.init(storeFactories:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/LocusContainer.swift",
+      "line": 48,
+      "symbol": "LocusContainer.init(storeFactories:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/LocusContainer.swift",
+      "line": 55,
+      "symbol": "LocusContainer",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/LocusContainer.swift",
+      "line": 149,
+      "symbol": "LocusContainer",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/LocusContainer.swift",
+      "line": 153,
+      "symbol": "LocusContainer",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/SettingsContainer.swift",
+      "line": 124,
+      "symbol": "SettingsContainer.register(key:default:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/SettingsContainer.swift",
+      "line": 128,
+      "symbol": "SettingsContainer.register(key:default:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/SettingsContainer.swift",
+      "line": 132,
+      "symbol": "SettingsContainer.register(key:access:default:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/SettingsContainer.swift",
+      "line": 136,
+      "symbol": "SettingsContainer.resolve(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/SettingsContainer.swift",
+      "line": 140,
+      "symbol": "SettingsContainer.store(key:value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/SettingsContainer.swift",
+      "line": 144,
+      "symbol": "SettingsContainer.reset(key:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/SettingsContainer.swift",
+      "line": 153,
+      "symbol": "SettingsContainer.subscript(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/SettingsContainer.swift",
+      "line": 158,
+      "symbol": "SettingsContainer.subscript(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/Stores/AccessLevel.swift",
+      "line": 9,
+      "symbol": "AccessLevel",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/Stores/TransientStoreFactory.swift",
+      "line": 14,
+      "symbol": "TransientStoreFactory.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/derekclarkson/projects/Locus/Locus/Stores/UserDefaultsStoreFactory.swift",
+      "line": 14,
+      "symbol": "UserDefaultsStoreFactory.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/derekclarkson/projects/Locus"
+}

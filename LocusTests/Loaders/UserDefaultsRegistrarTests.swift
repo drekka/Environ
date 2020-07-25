@@ -54,12 +54,12 @@ class UserDefaultsRegistrarTests: XCTestCase {
     }
 
     static func registerUserDefaults(inContainer container: SettingsContainer) {
-        container.register(key: "slider_preference", defaultValue: 0)
-        container.register(key: "name_preference", defaultValue: "")
-        container.register(key: "enabled_preference", defaultValue: false)
-        container.register(key: "child.slider_preference", defaultValue: 0)
-        container.register(key: "child.name_preference", defaultValue: "")
-        container.register(key: "child.enabled_preference", defaultValue: false)
+        container.register(key: "slider_preference", default: 0)
+        container.register(key: "name_preference", default: "")
+        container.register(key: "enabled_preference", default: false)
+        container.register(key: "child.slider_preference", default: 0)
+        container.register(key: "child.name_preference", default: "")
+        container.register(key: "child.enabled_preference", default: false)
     }
 
     static func clearRegisteredDefaults() {

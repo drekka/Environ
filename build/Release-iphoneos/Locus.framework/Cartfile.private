@@ -1,0 +1,2 @@
+github "Quick/Nimble"
+github "drekka/swifter" "patch/Update-to-ios12"

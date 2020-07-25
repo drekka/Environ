@@ -13,11 +13,11 @@ public struct UserDefaultsStoreFactory: StoreFactory {
 
     public init() {}
 
-    public func createStoreForSetting<V>(withKey key: String, scope: Scope, parent: Store<V>) -> Store<V> {
-        if scope == .writable {
+    public func createStoreForSetting<V>(withKey key: String, access: AccessLevel, parent: Store<V>) -> Store<V> {
+        if access == .writable {
             return UserDefaultsWritableStore(parent: parent)
         }
-        if scope == .readonly {
+        if access == .readonly {
             return UserDefaultsReadonlyStore(parent: parent)
         }
         return parent

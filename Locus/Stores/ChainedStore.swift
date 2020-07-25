@@ -7,7 +7,7 @@
 //
 
 /**
- A store that can be chained with other stores to provide the storage functionality.
+ A store that can be chained with other stores to provide the a sequence of processes for storing and retrieving settings.
 
  All the methods and variables in Store are overridden to forward to this stores parent store.
  */
@@ -30,8 +30,8 @@ open class ChainedStore<V>: Store<V> {
         self.parent = parent
     }
 
-    public override func update(withDefaultValue value: V) {
-        parent.update(withDefaultValue: value)
+    public override func update(defaultValue value: V) {
+        parent.update(defaultValue: value)
     }
 
     public override func store(newValue value: V) {

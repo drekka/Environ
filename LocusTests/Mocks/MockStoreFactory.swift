@@ -12,8 +12,8 @@ struct MockStoreFactory: StoreFactory {
 
     init() {}
 
-    func createStoreForSetting<V>(withKey key: String, scope: Scope, parent: Store<V>) -> Store<V> {
-        switch scope {
+    func createStoreForSetting<V>(withKey key: String, access: AccessLevel, parent: Store<V>) -> Store<V> {
+        switch access {
         case .transient, .writable:
             return TransientStore(parent: parent)
         default:

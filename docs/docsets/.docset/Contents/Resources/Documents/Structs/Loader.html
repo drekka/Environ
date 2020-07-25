@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Loader Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/Loader" class="dashAnchor"></a>
+    <a title="Loader Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (84% documented)</p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Loader Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ChainedStore.html">ChainedStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocusContainer.html">LocusContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Store.html">Store</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AccessLevel.html">AccessLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Castable.html">Castable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Container.html">Container</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Loadable.html">Loadable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SettingsContainer.html">SettingsContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/StoreFactory.html">StoreFactory</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DataSource.html">DataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Loader.html">Loader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Mapper.html">Mapper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TransientStoreFactory.html">TransientStoreFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserDefaultsStoreFactory.html">UserDefaultsStoreFactory</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Loader</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Loader</span></code></pre>
+
+                </div>
+              </div>
+            <p>Loads settings from a source and passes it to a mapper before updating Locus with new defaults.</p>
+
+<p>Loaders make use of two other structs to load settings. A DataSource instaince which can asynchronously read data from any type of source and a mapper that then processes that data into a Dictionary of settings keys and default values to be set. It should noted here that loaders only set the default value of a setting. If there is an updated value in user defaults or some other storage area, that value will still be returned in preference to the default value.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializers"></a>
+                <a name="//apple_ref/swift/Section/Initializers" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Initializers"></a>
+                  <h3 class="section-name"><p>Initializers</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Locus6LoaderV4from11usingMapperAcA10DataSourceV_AA0E0Vtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(from:usingMapper:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Locus6LoaderV4from11usingMapperAcA10DataSourceV_AA0E0Vtcfc">init(from:<wbr>usingMapper:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default initializer.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">from</span> <span class="nv">source</span><span class="p">:</span> <span class="kt"><a href="../Structs/DataSource.html">DataSource</a></span><span class="p">,</span> <span class="n">usingMapper</span> <span class="nv">mapper</span><span class="p">:</span> <span class="kt"><a href="../Structs/Mapper.html">Mapper</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>source</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A DataSource that returns settings as a Data instance.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>mapper</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Is usually matched to the Data that the DataSource returns and knows how to convert it to a Dictionary of setting key value pairs.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-07-25)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

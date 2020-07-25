@@ -11,10 +11,13 @@ import os
 
 typealias PlistPreference = (file: String, key: String, value: Any)
 
+/**
+ Registers defaults from settings plists in the UserDefaults registration domain.
+ */
 struct UserDefaultsRegistrar {
 
     @discardableResult
-    func register(bundle: Bundle = Bundle.main,
+    public func register(bundle: Bundle = Bundle.main,
                   settingsBundleName: String = "Settings",
                   rootPlistName: String = "Root",
                   using: (PlistPreference) -> PlistPreference? = { $0 }) -> [String: Any] {
@@ -24,13 +27,13 @@ struct UserDefaultsRegistrar {
                 return [:]
         }
 
-        os_log("%@Registering preferences from %@.plist in %@.bundle...", type: .debug, logPrefix, rootPlistName, settingsBundleName)
+        os_log("🧩 Registering preferences from %@.plist in %@.bundle...", type: .debug, rootPlistName, settingsBundleName)
         let preferences = appPreferences(fromPlist: rootPlistName, inBundle: settingsBundle, using: using)
         let settings = Dictionary<String, Any>(uniqueKeysWithValues: preferences.map { ($0.key, $0.value) })
         UserDefaults.standard.register(defaults: settings)
 
-        os_log("%@Registered preferences:", type: .debug, logPrefix)
-        preferences.sorted { $0.key < $1.key }.forEach { os_log("%@    • %@.plist, %@: %@", type: .debug, logPrefix, $0.file, $0.key, String(describing: $0.value)) }
+        os_log("🧩 Registered preferences:", type: .debug)
+        preferences.sorted { $0.key < $1.key }.forEach { os_log("🧩     • %@.plist, %@: %@", type: .debug, $0.file, $0.key, String(describing: $0.value)) }
 
         return settings
     }
@@ -48,7 +51,7 @@ struct UserDefaultsRegistrar {
 
             // Recurse into child panes.
             if preference["Type"] as? String == "PSChildPaneSpecifier", let file = preference["File"] as? String {
-                os_log("%@Found child pane %@ with preferences", type: .debug, logPrefix, file)
+                os_log("🧩 Found child pane %@ with preferences", type: .debug, file)
                 result.append(contentsOf: appPreferences(fromPlist: file, inBundle: bundle, using: using))
                 return
             }
@@ -60,7 +63,7 @@ struct UserDefaultsRegistrar {
 
                 // Check for duplicates
                 if let duplicate = result.first(where: { $0.key == finalPreference.key }) {
-                    fatalError(fatalPrefix + "Found duplicate key '" + finalPreference.key + "' in plists " + plist + ".plist and " + duplicate.file + ".plist")
+                    fatalError("🧨🧨🧨 Found duplicate key '" + finalPreference.key + "' in plists " + plist + ".plist and " + duplicate.file + ".plist")
                 }
 
                 result.append(finalPreference)

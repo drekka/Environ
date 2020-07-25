@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/derekclarkson/projects/Locus/build/Release-iphoneos/Locus.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/derekclarkson/projects/Locus/build/Locus.build/Release-iphoneos/Locus.build/unextended-module.modulemap",
+    }]
+  }]
+}

@@ -27,9 +27,9 @@ public extension Castable {
 
     func cast<T>(_ value: Any, forKey key: String) -> T {
         if let castValue = value as? T {
-            os_log("%@Resolving %@ -> %@", type: .debug, logPrefix, key, String(describing: value))
+            os_log("🧩 Resolving %@ -> %@", type: .debug, key, String(describing: value))
             return castValue
         }
-        fatalError(fatalPrefix + "Unable to cast value for '" + key + "'")
+        fatalError("🧨🧨🧨 Unable to cast value for '" + key + "'")
     }
 }

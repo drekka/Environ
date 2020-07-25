@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Structures  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Section/Structures" class="dashAnchor"></a>
+    <a title="Structures  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (84% documented)</p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Structures  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ChainedStore.html">ChainedStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LocusContainer.html">LocusContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Store.html">Store</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/AccessLevel.html">AccessLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/Castable.html">Castable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Container.html">Container</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Loadable.html">Loadable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SettingsContainer.html">SettingsContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/StoreFactory.html">StoreFactory</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/DataSource.html">DataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Loader.html">Loader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Mapper.html">Mapper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/TransientStoreFactory.html">TransientStoreFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/UserDefaultsStoreFactory.html">UserDefaultsStoreFactory</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Structures</h1>
+            <p>The following structures are available globally.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Locus10DataSourceV"></a>
+                    <a name="//apple_ref/swift/Struct/DataSource" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Locus10DataSourceV">DataSource</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>DataSources are using by the Loader class to read data containing settings and defaults.</p>
+
+<p>DataSources are always part of a pair, a data source and a mapper with the data source reading the data and the mapper turning it into a <code>Dictionary</code> of settings keys and default values.</p>
+
+                        <a href="Structs/DataSource.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Locus6LoaderV"></a>
+                    <a name="//apple_ref/swift/Struct/Loader" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Locus6LoaderV">Loader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads settings from a source and passes it to a mapper before updating Locus with new defaults.</p>
+
+<p>Loaders make use of two other structs to load settings. A DataSource instaince which can asynchronously read data from any type of source and a mapper that then processes that data into a Dictionary of settings keys and default values to be set. It should noted here that loaders only set the default value of a setting. If there is an updated value in user defaults or some other storage area, that value will still be returned in preference to the default value.</p>
+
+                        <a href="Structs/Loader.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Loader</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Locus6MapperV"></a>
+                    <a name="//apple_ref/swift/Struct/Mapper" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Locus6MapperV">Mapper</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mappers are responsible for taking the raw <code>Data</code> that a <code><a href="Structs/DataSource.html">DataSource</a></code> generates, reading it and returning a <code>Dictionary</code> of settings.</p>
+
+                        <a href="Structs/Mapper.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Mapper</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Locus21TransientStoreFactoryV"></a>
+                    <a name="//apple_ref/swift/Struct/TransientStoreFactory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Locus21TransientStoreFactoryV">TransientStoreFactory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates stores for transient settings.</p>
+
+                        <a href="Structs/TransientStoreFactory.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TransientStoreFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StoreFactory.html">StoreFactory</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Locus24UserDefaultsStoreFactoryV"></a>
+                    <a name="//apple_ref/swift/Struct/UserDefaultsStoreFactory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Locus24UserDefaultsStoreFactoryV">UserDefaultsStoreFactory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates stores for values that can read and write to the app&rsquo;s user defaults.</p>
+
+                        <a href="Structs/UserDefaultsStoreFactory.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UserDefaultsStoreFactory</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StoreFactory.html">StoreFactory</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-07-25)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

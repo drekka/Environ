@@ -19,12 +19,12 @@ class DefaultStore<V>: Store<V> {
         return defaultValue
     }
 
-    init(key: String, defaultValue: V) {
+    init(key: String, value: V) {
         self.settingKey = key
-        self.defaultValue = defaultValue
+        self.defaultValue = value
     }
 
-    override func update(withDefaultValue value: V) {
+    override func update(defaultValue value: V) {
         defaultValue = value
     }
 }
