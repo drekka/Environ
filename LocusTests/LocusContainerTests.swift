@@ -162,7 +162,7 @@ class LocusContainerTests: XCTestCase {
         }
         settings.register(key: "abc", access: .readonly, default: 5)
         expect(called).to(beFalse())
-        settings.registerAppSettings = false
+        settings.registerAppPreferences = false
         expect(self.settings.resolve("abc") as Int) == 5 // Should NOT trigger user defaults registrations.
         expect(called).to(beFalse())
     }
