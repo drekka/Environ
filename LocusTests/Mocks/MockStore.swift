@@ -30,7 +30,7 @@ class MockStore<V>: Store<V> {
        _value = value
     }
 
-    override func update(withDefaultValue value: V) {
+    override func update(defaultValue value: V) {
         _value = value
     }
 }

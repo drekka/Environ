@@ -32,7 +32,7 @@ class StoreTests: XCTestCase {
     }
 
     func testUpdateFatal() {
-        expect(self.store.update(withDefaultValue: "def")).to(throwAssertion())
+        expect(self.store.update(defaultValue: "def")).to(throwAssertion())
     }
 
     func testResetFatal() {

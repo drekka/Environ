@@ -53,6 +53,15 @@ class UserDefaultsRegistrarTests: XCTestCase {
         expect( _ = self.registrar.register(bundle: Bundle(for: UserDefaultsRegistrarTests.self), rootPlistName: "DuplicateKey")).to(throwAssertion())
     }
 
+    static func registerUserDefaults(inContainer container: SettingsContainer) {
+        container.register(key: "slider_preference", default: 0)
+        container.register(key: "name_preference", default: "")
+        container.register(key: "enabled_preference", default: false)
+        container.register(key: "child.slider_preference", default: 0)
+        container.register(key: "child.name_preference", default: "")
+        container.register(key: "child.enabled_preference", default: false)
+    }
+
     static func clearRegisteredDefaults() {
         // We havew to use this code to clear the resgistration domain because it is not cleared by executing a remove domain function.
         var registered = UserDefaults.standard.volatileDomain(forName: UserDefaults.registrationDomain)

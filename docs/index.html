@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a title="  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (84% documented)</p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+          Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ChainedStore.html">ChainedStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LocusContainer.html">LocusContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Store.html">Store</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/AccessLevel.html">AccessLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/Castable.html">Castable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Container.html">Container</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Loadable.html">Loadable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/SettingsContainer.html">SettingsContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/StoreFactory.html">StoreFactory</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/DataSource.html">DataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Loader.html">Loader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Mapper.html">Mapper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/TransientStoreFactory.html">TransientStoreFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/UserDefaultsStoreFactory.html">UserDefaultsStoreFactory</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='locus' class='heading'>Locus</h1>
+
+<p><strong>Merriam-Webster dictionary -</strong> <em>1a: the place where something is situated or occurs. 1b: a center of activity, attention, or concentration. <strong>2: the set of all points whose location is determined by stated conditions</strong> 3: the position in a chromosome of a particular gene or allele.</em>_</p>
+
+<p><em>… or 4: An iOS API for managing an applications settings.</em></p>
+<h2 id='so-what-is-locus' class='heading'>So what is Locus…?</h2>
+
+<p>Locus is an API for managing applications settings. It facilitates loading settings from local and remote configuration files, local user defaults and hard coded values in code. It validates and secures settings through a simple API that ensures consistency when accessing settings whilst it manages the complexity for your. </p>
+<h2 id='features' class='heading'>Features</h2>
+
+<ul>
+<li>Container driven repositories to manage application settings.</li>
+<li>Auto-registration of <code>Root.plist</code> defaults.</li>
+<li>Access control to ensure settings are used as intended.</li>
+<li>Release locked settings which are only writable in debug configurations.</li>
+<li>Domains for related settings.</li>
+<li>Pre-configured and custom loaders for reading settings from local and remote sources.</li>
+<li>Duplicate and orphan settings detection.</li>
+<li>Protocol driven design for extensibilty.</li>
+</ul>
+<h1 id='quick-guide' class='heading'>Quick guide</h1>
+
+<p>Although Locus is protocol driven and extremely flexible in how you can use it the following examples show just how easy it is to use. </p>
+<h2 id='step-1-define-your-settings-in-a-protocol' class='heading'>Step 1: Define your settings in a protocol</h2>
+
+<p>In this example we&rsquo;ll define some basic settings for accessing a server in a protocol like this:</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">MyApplicationSettings</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">serverUrl</span><span class="p">:</span> <span class="kt">URL</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span> 
+    <span class="k">var</span> <span class="nv">timeout</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='step-2-define-your-setting-keys' class='heading'>Step 2: Define your setting keys</h2>
+
+<p>Next we need the keys that the settings are to be stored under. Typically these would also match any keys used in preferences if you&rsquo;re making them editable in that way. You can define the keys in a variety of ways (plain old hard coded <code>&quot;String.key&quot;</code> values for example) but it&rsquo;s nicer to use an enum like this:</p>
+<pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">SettingKey</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">serverUrl</span> <span class="o">=</span> <span class="s">"server.url"</span>
+    <span class="k">case</span> <span class="n">path</span> <span class="o">=</span> <span class="s">"server.query.path"</span>
+    <span class="k">case</span> <span class="n">timeout</span> <span class="o">=</span> <span class="s">"server.timeout"</span>
+<span class="p">}</span> 
+</code></pre>
+
+<p>Locus has a full set of function overrides that take <code>RawRepresentable</code> keys as well as <code>String</code> keys just to make things easier.</p>
+<h2 id='step-3-create-the-settings-container' class='heading'>Step 3: Create the settings container</h2>
+
+<p>Locus uses a container to manage settings and there are several options here: we can manually setup one, use a <code>.shared</code> instance, or create multiple containers if that suites the app. For this guide we&rsquo;ll manually create one like this: </p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">locus</span><span class="p">:</span> <span class="kt">SettingsContainer</span> <span class="o">=</span> <span class="kt">LocusContainer</span><span class="p">()</span>
+</code></pre>
+
+<p><em>Another useful technique to employee, especially in large applications, is to employ a DI framework such as <a href="https://github.com/Swinject/Swinject">Swinject</a> or <a href="https://github.com/hmlongco/Resolver">Resolver</a> to manage not just the Locus container, but other shared objects as well.</em></p>
+<h2 id='step-4-register-your-settings' class='heading'>Step 4: Register your settings.</h2>
+
+<p>Now that we have our container we need to register the settings and some /default values.</p>
+
+<p><em>Locus is built on the architectural idea that every setting has a default value. That value can be overridden by subsequently loading a new default or values stored in user defaults or configuration files, but it must have a default.</em></p>
+
+<p>The simplest way to register settings with a container is to call the <code>.register(...)</code> function like this:</p>
+<pre class="highlight swift"><code><span class="n">locus</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">SettingKey</span><span class="o">.</span><span class="n">serverUrl</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"http://nyserver.com"</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+<span class="n">locus</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">SettingKey</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="mf">30.0</span><span class="p">)</span>
+<span class="n">locus</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">SettingKey</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="s">"/hello"</span><span class="p">)</span>
+</code></pre>
+
+<p>By default <code>.register(...)</code> assigns a <code>.readonly</code> access level to settings. If you later try to change the values, Locus it will trigger a fatal error. This was a deliberate decision to help developers catch situations where they are modifying something they 
+shouldn&rsquo;t be. <em>See later in this document for how you can change a setting&rsquo;s access level.</em></p>
+<h2 id='step-5-load-configuration-file' class='heading'>Step 5: Load configuration file</h2>
+
+<p>In larger apps we often want to update settings from a JSON file or plist stored locally or on a remote server. To do this we setup and run some loaders using the container&rsquo;s <code>.load(...)</code> function like this during the application&rsquo;s startup:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">remoteUrl</span> <span class="o">=</span> <span class="kt">URL</span><span class="p">(</span><span class="s">"http://abc.com/config.json"</span><span class="p">)</span><span class="o">!</span>
+<span class="n">locus</span><span class="o">.</span><span class="nf">load</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">EmbeddedJSONFile</span><span class="p">(</span><span class="s">"config.json"</span><span class="p">),</span> <span class="kt">RemoteJSONFileLoader</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="n">remoteUrl</span><span class="p">))</span>
+</code></pre>
+<h2 id='step-6-accessing-settings' class='heading'>Step 6: Accessing settings</h2>
+
+<p>Now we&rsquo;ve got our settings configured and loaded. So all we have to do is access them:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span> <span class="o">=</span> <span class="n">locus</span><span class="o">.</span><span class="nf">resolve</span><span class="p">(</span><span class="kt">SettingKey</span><span class="o">.</span><span class="n">serverUrl</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">timeout</span><span class="p">:</span> <span class="kt">NSTimeInterval</span> <span class="o">=</span> <span class="n">locus</span><span class="o">.</span><span class="nf">resolve</span><span class="p">(</span><span class="kt">SettingKey</span><span class="o">.</span><span class="n">timeout</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span> <span class="err"></span><span class="o">=</span> <span class="n">locus</span><span class="o">.</span><span class="nf">resolve</span><span class="p">(</span><span class="kt">SettingKey</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</code></pre>
+
+<p>Locus also supports subscripts so this works too:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span> <span class="o">=</span> <span class="n">locus</span><span class="p">[</span><span class="kt">SettingKey</span><span class="o">.</span><span class="n">serverUrl</span><span class="p">]</span>
+<span class="k">let</span> <span class="nv">timeout</span><span class="p">:</span> <span class="kt">NSTimeInterval</span> <span class="o">=</span> <span class="n">locus</span><span class="p">[</span><span class="kt">SettingKey</span><span class="o">.</span><span class="n">timeout</span><span class="p">]</span>
+<span class="k">let</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span> <span class="err"></span><span class="o">=</span> <span class="n">locus</span><span class="p">[</span><span class="o">.</span><span class="kt">SettingKey</span><span class="o">.</span><span class="n">path</span><span class="p">]</span>
+</code></pre>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-07-25)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

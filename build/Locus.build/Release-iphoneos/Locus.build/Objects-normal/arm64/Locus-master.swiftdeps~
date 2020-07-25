@@ -1,0 +1,23 @@
+version: "Apple Swift version 5.3 (swiftlang-1200.0.16.13 clang-1200.0.22.25)"
+options: "5b447de1e6ec5eff4b607d2ca4371676"
+build_time: [1595576629, 114942000]
+inputs:
+  "/Users/derekclarkson/projects/Locus/Locus/LocusError.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Loaders/Loadable.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Stores/TransientStoreFactory.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Stores/UserDefaultsStoreFactory.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Loaders/Mapper.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Loaders/Loader.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Protocols/Castable.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Loaders/DataSource.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/LocusContainer.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Stores/AccessLevel.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Loaders/UserDefaultsRegistrar.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Stores/Store.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Stores/StoreFactory.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Stores/UserDefaultsStore.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Stores/TransientStore.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/SettingsContainer.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Stores/DefaultStore.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/SettingsSubscriptable.swift": [9223372036, 854775807]
+  "/Users/derekclarkson/projects/Locus/Locus/Stores/ChainedStore.swift": [9223372036, 854775807]

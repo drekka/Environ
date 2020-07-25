@@ -6,13 +6,18 @@
 //  Copyright © 2020 Derek Clarkson. All rights reserved.
 //
 
-import Locus
+@testable import Locus
 
 struct MockStoreFactory: StoreFactory {
 
     init() {}
 
-    func createStoreForSetting<V>(withKey key: String, scope: Scope, parent: Store<V>) -> Store<V> {
-        return ChainedStore(parent: parent)
+    func createStoreForSetting<V>(withKey key: String, access: AccessLevel, parent: Store<V>) -> Store<V> {
+        switch access {
+        case .transient, .writable:
+            return TransientStore(parent: parent)
+        default:
+            return parent
+        }
     }
 }

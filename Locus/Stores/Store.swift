@@ -15,12 +15,12 @@ open class Store<V> {
 
     /// Returns the key that identifies the setting.
     open var key: String {
-        fatalError(fatalPrefix + "Key property must be overridden.")
+        fatalError("🧨🧨🧨 Key property must be overridden.")
     }
 
     /// Returns the current value of the setting.
     open var value: V {
-        fatalError(fatalPrefix + "Value property for key '" + key + "' must be overridden.")
+        fatalError("🧨🧨🧨 Value property for key '" + key + "' must be overridden.")
     }
 
     /**
@@ -31,7 +31,7 @@ open class Store<V> {
      - parameter value: The new value for the setting.
      */
     open func store(newValue value: V) {
-        fatalError(fatalPrefix + "Key " + key + " is not storable.")
+        fatalError("🧨🧨🧨 Key " + key + " is not storable.")
     }
 
     /**
@@ -41,14 +41,14 @@ open class Store<V> {
 
      - parameter value: The new default value for the setting.
      */
-    open func update(withDefaultValue value: V) {
-        fatalError(fatalPrefix + "Key " + key + " is not updateable.")
+    open func update(defaultValue value: V) {
+        fatalError("🧨🧨🧨 Key " + key + " is not updateable.")
     }
 
     /**
      Resets stored values for this setting.
      */
     open func reset() {
-        fatalError(fatalPrefix + "Key " + key + " is not reset.")
+        fatalError("🧨🧨🧨 Key " + key + " is not reset.")
     }
 }

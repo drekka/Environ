@@ -35,7 +35,7 @@ class ChainedStoreTests: XCTestCase {
     }
 
     func testUpdate() {
-        store.update(withDefaultValue: 10)
+        store.update(defaultValue: 10)
         expect(self.store.value) == 10
     }
 }

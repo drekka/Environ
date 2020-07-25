@@ -10,6 +10,8 @@ import XCTest
 import Locus
 import Nimble
 
+// Test illustrating how Locus might be used.
+
 protocol TestSettings {
     var url: String { get }
     var retries: Int { get }
@@ -24,8 +26,8 @@ extension LocusContainer: TestSettings {
     var url: String { return self[TestRawRepresentable.url] }
     var retries: Int { return self[TestRawRepresentable.retries] }
     func registerTestSettings(inContainer container: SettingsContainer) {
-        container.register(key: TestRawRepresentable.url, scope: .readonly, defaultValue: "http://abc.com")
-        container.register(key: TestRawRepresentable.retries, scope: .readonly, defaultValue: 5)
+        container.register(key: TestRawRepresentable.url, access: .readonly, default: "http://abc.com")
+        container.register(key: TestRawRepresentable.retries, access: .readonly, default: 5)
     }
 }
 
